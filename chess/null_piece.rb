@@ -4,7 +4,9 @@ require 'singleton'
 class NullPiece < Piece
 
   include Singleton
- 
+
+  attr_reader :symbol
+
   def initialize
     @color = :yellow # TODO: change color
     @symbol = '🔲'
@@ -14,4 +16,5 @@ class NullPiece < Piece
   def inspect
     'Null'
   end
+  
 end
