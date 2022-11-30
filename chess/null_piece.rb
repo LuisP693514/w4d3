@@ -16,5 +16,4 @@ class NullPiece < Piece
   def inspect
     'Null'
   end
-  
 end
