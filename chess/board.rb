@@ -9,9 +9,9 @@ class Board
 
     grid.each.with_index do |row, i|
       if piece_rows.include?(i) 
-        grid[i] = row.map.with_index {|square, j| square = Piece.new(self,[i,j]) }
+        grid[i] = row.map.with_index {|square, j| square = Piece.new(self,[i,j], :white) }
       else
-        grid[i] = row.map.with_index {|square, j| square = NullPiece.new(self, [i, j]) }
+        grid[i] = row.map.with_index {|square, j| square = NullPiece.instance }
       end
     end
 

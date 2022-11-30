@@ -8,9 +8,9 @@ class Pawn < Piece
 
   def moves
     all_moves = []
-    row, col = @pos
 
-    all_moves << [row + forward_steps, col]
+    all_moves.concat(forward_steps)
+  
   end
 
   private
@@ -21,12 +21,12 @@ class Pawn < Piece
   end
 
   def forward_steps
+    row, col = @pos
+
     if self.at_start_row? 
-      steps = 2
-      return self.forward_dir * steps
+      return [[row + self.forward_dir, col], [row + self.forward_dir * 2, col]]
     else
-      steps = 1
-      return self.forward_dir * steps
+      return [[row + self.forward_dir, col]]
     end
   end
 
