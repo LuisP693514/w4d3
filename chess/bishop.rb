@@ -1,6 +1,8 @@
 require_relative 'piece'
+require_relative 'slideable'
 
 class Bishop < Piece
+  include Slidable
 
     def symbol
       '♗'
@@ -8,11 +10,7 @@ class Bishop < Piece
 
     def move_dirs
 
-      [[-1,-1],
-        [-1,1],
-        [1, 1],
-        [1,-1]
-      ]
+      self.diagonal_dirs
 
     end
   

@@ -9,9 +9,9 @@ class Board
 
     grid.each.with_index do |row, i|
       if piece_rows.include?(i) 
-        grid[i] = row.map.with_index {|square, j| square = Piece.new([i,j]) }
+        grid[i] = row.map.with_index {|square, j| square = Piece.new(self,[i,j]) }
       else
-        grid[i] = row.map.with_index {|square, j| square = NullPiece.new([i, j]) }
+        grid[i] = row.map.with_index {|square, j| square = NullPiece.new(self, [i, j]) }
       end
     end
 
@@ -43,7 +43,7 @@ class Board
     end
 
     piece = self[start_pos]
-    self[start_pos] = NullPiece.new(start_pos)
+    self[start_pos] = NullPiece.new(self, start_pos)
     self[end_pos] = piece
   end
 

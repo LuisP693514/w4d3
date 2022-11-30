@@ -1,5 +1,7 @@
 require_relative 'piece'
+require_relative 'slidable'
 class Rook < Piece
+  include Slidable
 
   # NOTE: not implemented properly
   def symbol
@@ -7,11 +9,7 @@ class Rook < Piece
   end
 
   def move_dirs
-    [[-1,0],
-      [0,1],
-      [1,0],
-      [0,-1]
-    ]
+    self.horizontal_dirs
   end
 
 end

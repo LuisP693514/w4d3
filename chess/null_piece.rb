@@ -2,8 +2,8 @@ require_relative 'piece'
 
 class NullPiece < Piece
  
-  def initialize(pos)
-    super
+  def initialize(board, pos)
+    super(board, pos, ' ')
   end
 
   def inspect
