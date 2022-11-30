@@ -5,7 +5,7 @@ class Rook < Piece
 
   # NOTE: not implemented properly
   def symbol
-    '♖'
+    '♖'.colorize(color)
   end
 
   def move_dirs

@@ -1,8 +1,8 @@
 class Piece 
 
-  attr_reader :pos
+  attr_reader :pos, :color
 
-  def initialize(board, pos, symbol=:S)
+  def initialize(board, pos, symbol)
     @color = symbol
     @board = board
     @pos = pos
@@ -18,11 +18,11 @@ class Piece
   end
 
   def to_s
-    @color.to_s
+    # TODO: implement it
   end
 
   def empty?
-    @pos.empty?
+    self.is_a?(NullPiece)
   end
 
   def valid_moves

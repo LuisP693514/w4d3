@@ -14,7 +14,6 @@ module Slidable
   def moves
     all_moves = []
 
-
     self.move_dirs.each do |step_move|
       row, col = @pos
 
@@ -24,13 +23,11 @@ module Slidable
         col += step_col
         break if legal(row, col) 
         all_moves << [row, col]
+        break if @board[[row, col]].color != self.color
       end
     end
 
-    # all_moves.select { |move| @board[move].is_a?(NullPiece) }
     all_moves
-    # if curr possible move from all moves is NullPiece or Opposite color
-
   end
 
 
@@ -41,6 +38,7 @@ module Slidable
   def legal(row, col)
     (row < 0 || row > 7 || col < 0 || col > 7) || !@board[[row,col]].is_a?(NullPiece) 
   end
+
   HORIZONTAL_DIRS = [[-1,0],
       [0,1],
       [1,0],
